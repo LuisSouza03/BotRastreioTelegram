@@ -22,6 +22,8 @@
         "import/extensions": "off",
         "indent": ["error", 4],
         "quotes": ["error", "single"],
-        "semi": ["error", "always"]
+        "semi": ["error", "always"],
+        "guard-for-in": "off",
+        "no-restricted-syntax": "off"
     }
 }
