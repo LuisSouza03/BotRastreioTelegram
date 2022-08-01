@@ -30,21 +30,23 @@ bot.on('message', async (msg) => {
             for (const i in messageRastreamento) {
                 let infoDesc;
 
-                switch (messageRastreamento[i].descricao) {
+                const descTrackOrder = messageRastreamento[i].descricao;
+
+                switch (descTrackOrder) {
                 case 'Objeto entregue ao destinatário':
-                    infoDesc = `✅ - ${messageRastreamento[i].descricao}`;
+                    infoDesc = `✅ - ${descTrackOrder}`;
                     break;
                 case 'Objeto postado':
-                    infoDesc = `🟡 - ${messageRastreamento[i].descricao}`;
+                    infoDesc = `🟡 - ${descTrackOrder}`;
                     break;
                 case 'Objeto não entregue - carteiro não atendido':
-                    infoDesc = `🟡 - ${messageRastreamento[i].descricao}`;
+                    infoDesc = `🟡 - ${descTrackOrder}`;
                     break;
                 case 'Objeto recebido pelos Correios do Brasil':
-                    infoDesc = `🛬 - ${messageRastreamento[i].descricao}`;
+                    infoDesc = `🛬 - ${descTrackOrder}`;
                     break;
                 default:
-                    infoDesc = `🚐 - ${messageRastreamento[i].descricao}`;
+                    infoDesc = `🚐 - ${descTrackOrder}`;
                 }
 
                 const dateInfo = moment(messageRastreamento[i].dtHrCriado).format('L');
@@ -54,7 +56,7 @@ bot.on('message', async (msg) => {
                     cidadeRastreio = messageRastreamento[i].unidade.endereco.cidade;
                     ufRastreio = messageRastreamento[i].unidade.endereco.uf;
                 } else {
-                    infoDesc = `🛫 - ${messageRastreamento[i].descricao}`;
+                    infoDesc = `🛫 - ${descTrackOrder}`;
                     cidadeRastreio = messageRastreamento[i]?.unidade.nome;
                     ufRastreio = '';
                 }
