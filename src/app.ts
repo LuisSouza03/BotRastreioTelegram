@@ -26,7 +26,6 @@ bot.on('message', async (msg) => {
             messageRastreamento = messageRastreamento
                 .sort((a: any, b: any) => a.dtHrCriado > b.dtHrCriado);
 
-            debugger;
             for (const i in messageRastreamento) {
                 let infoDesc;
 
