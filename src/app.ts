@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable import/newline-after-import */
 /* eslint-disable import/first */
@@ -29,15 +30,20 @@ bot.on('message', async (msg) => {
             for (const i in messageRastreamento) {
                 let infoDesc;
 
-                if (messageRastreamento[i].descricao === 'Objeto entregue ao destinatário') {
+                switch (messageRastreamento[i].descricao) {
+                case 'Objeto entregue ao destinatário':
                     infoDesc = `✅ - ${messageRastreamento[i].descricao}`;
-                } else if (messageRastreamento[i].descricao === 'Objeto postado') {
+                    break;
+                case 'Objeto postado':
                     infoDesc = `🟡 - ${messageRastreamento[i].descricao}`;
-                } else if (messageRastreamento[i].descricao === 'Objeto não entregue - carteiro não atendido') {
-                    infoDesc = `❗ - ${messageRastreamento[i].descricao}`;
-                } else if (messageRastreamento[i].descricao === 'Objeto recebido pelos Correios do Brasil') {
+                    break;
+                case 'Objeto não entregue - carteiro não atendido':
+                    infoDesc = `🟡 - ${messageRastreamento[i].descricao}`;
+                    break;
+                case 'Objeto recebido pelos Correios do Brasil':
                     infoDesc = `🛬 - ${messageRastreamento[i].descricao}`;
-                } else {
+                    break;
+                default:
                     infoDesc = `🚐 - ${messageRastreamento[i].descricao}`;
                 }
 
