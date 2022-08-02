@@ -8,7 +8,7 @@ import moment from 'moment';
 moment.locale('pt-br');
 import rastreamento from './controllers/RastrearEncomendas.controller';
 
-const token = '5537259503:AAEnf1255UuALfg2YxLWg3rZY_1quSjiJ7E';
+const token = '5537259503:AAEhz1eBUA2cL4GpounNNf7Dkz_Eb2vRqyo';
 
 const bot = new TelegramBot(token, { polling: true });
 

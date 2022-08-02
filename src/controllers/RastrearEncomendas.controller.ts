@@ -8,6 +8,8 @@ async function rastreamento(codRastreio: any): Promise<any> {
                 resolve(dadosEncomenda);
             }
             return dadosEncomenda;
+        }).catch((error) => {
+            console.log(error);
         });
     });
 }
