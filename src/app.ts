@@ -2,7 +2,6 @@ require('dotenv').config();
 
 import TelegramBot from 'node-telegram-bot-api';
 import moment from 'moment';
-import { removeAllListeners } from 'process';
 import createTrackingMessage from './models/TrackOrders.models';
 import trackOrder from './controllers/TrackOrders.controller';
 import consultCEP from './controllers/ConsultCEP.controller';
@@ -10,7 +9,7 @@ import createConsultMessage from './models/ConsultCEP.models';
 
 moment.locale('pt-br');
 
-const token = '5357767207:AAHYIfU13RTYBb4YP7GLWw_SqvMU0jjy4fM';
+const token = process.env.TOKEN as string;
 
 const bot = new TelegramBot(token, { polling: true });
 
